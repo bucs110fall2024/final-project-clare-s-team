@@ -1,7 +1,7 @@
 
 :warning: Everything between << >> needs to be replaced (remove << >> after replacing)
 
-# << Project Title >>
+# Play Piano
 ## CS110 Final Project  Fall, 2024 
 
 ## Team Members
@@ -12,7 +12,7 @@ Clare Calandra
 
 ## Project Description
 
-<< Give an overview of your project >>
+My project will simulate playing a piano and facilitate learning the instrument by highlighting labeled keys to the rhythm of simple songs. 
 
 ***    
 
@@ -30,11 +30,11 @@ Clare Calandra
 
 ### Features
 
-1. << Feature 1 >>
-2. << Feature 2 >>
-3. << Feature 3 >>
-4. << Feature 4 >>
-5. << Feature 5 >>
+1. Choose your song menu 
+2. Labeled, interactive keys 
+3. Sound plays when keys are clicked 
+4. Sheet music displayed 
+5. Notes change color 
 
 ### Classes
 
