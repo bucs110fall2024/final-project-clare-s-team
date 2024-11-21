@@ -1,8 +1,11 @@
-import pygame
-#import your controller
+import pygame 
+from src import Controller 
+#import your controller             from src.controller import controller 
 
 def main():
-    pygame.init()
+    pygame.init() 
+    controller = Controller() 
+    controller.mainloop() 
     #Create an instance on your controller object
     #Call your mainloop
     
@@ -10,4 +13,4 @@ def main():
 
 # https://codefather.tech/blog/if-name-main-python/
 if __name__ == '__main__':
-    main()
+    main() 
