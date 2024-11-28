@@ -60,18 +60,19 @@ class Controller:
       #event loop 
     self.screen.fill((0, 0, 0),None) 
     pygame.draw.rect(self.screen, (202, 3, 252), (50, 50, 900, 450)) 
-    song1 = Buttons(70, 70, 260, 110) 
-    song2 = Buttons(370, 70, 260, 110)
-    song3 = Buttons(670, 70, 260, 110)
-    song4 = Buttons(70, 220, 260, 110)
-    free_play = Buttons(370, 220, 260, 110) 
-    song5 = Buttons(670, 220, 260, 110)
-    song6 = Buttons(70, 370, 260, 110)
-    song7 = Buttons(370, 370, 260, 110)
-    song8 = Buttons(670, 370, 260, 110) 
+    song1 = Buttons(70, 70, 260, 110, "Song #1") 
+    song2 = Buttons(370, 70, 260, 110, "Song #2") 
+    self.screen.blit(song2.image, song2.rect)
+    song3 = Buttons(670, 70, 260, 110, "Song #3")
+    song4 = Buttons(70, 220, 260, 110, "Song #4")
+    free_play = Buttons(370, 220, 260, 110, "Free Play") 
+    song5 = Buttons(670, 220, 260, 110, "Song #5")
+    song6 = Buttons(70, 370, 260, 110, "Song #6")
+    song7 = Buttons(370, 370, 260, 110, "Song #7")
+    song8 = Buttons(670, 370, 260, 110, "Song #8") 
     button_list = [song1, song2, song3, song4, free_play, song5, song6, song7, song8] 
     for i in button_list: 
-      self.screen.blit(i.image, i.rect)
+      self.screen.blit(i.image, i.rect)         #Why is it only printing out the first message?! 
     pygame.display.flip() 
       
     while self.state == "menu": 
