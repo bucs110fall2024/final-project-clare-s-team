@@ -1,8 +1,9 @@
 import pygame 
+import os 
 class Keys: 
-    def __init__(self, x, y=300, width=120, height=250): 
-        """
-        Initializes the key object
+    def __init__(self, x, y=300, width=120, height=250, color=(255, 255, 255)): 
+        """ 
+        Initializes the key object 
         args: 
             - x (int): starting x coordinate 
             - y (int): starting y coordinate 
@@ -14,18 +15,25 @@ class Keys:
         self.rect.y = y 
         self.rect.width = width 
         self.rect.height = height 
+        self.color = color 
         
     def play_note(self): 
-        """
+        """ 
         Plays note of key 
         args:None 
         return: None 
-        """
-        pass
-    def press_down(self): 
+        """ 
+        pass 
+    def key_down(self, sound): 
         """ 
         Changes color of key pressed a shade darker 
         args: None 
         return: None 
         """ 
-        pass
+        self.sound = sound 
+        note = pygame.mixer.Sound(os.path.join("assets/Music - unknown album", self.sound)) 
+        pygame.mixer.Sound.play(note) 
+        pygame.time.wait(1000)
+        pygame.mixer.music.stop()
+        self.darker = (205, 205, 205) 
+        
