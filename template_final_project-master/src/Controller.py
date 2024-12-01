@@ -82,7 +82,7 @@ class Controller:
     description 
     """ 
     self.screen.fill((0, 0, 0))
-    self.keychart = Sheet_music("keychart.jpg", 100, 100, 500, 300) 
+    self.keychart = Sheet_music("keychart.jpg", 100, 50, 700, 300) 
     self.screen.blit(self.keychart.image, self.keychart.rect) 
     self.menu_button = Buttons(910, 20, 75, 35, "Menu", (202, 3, 252), (0, 0, 0), (5, 5)) 
     self.screen.blit(self.menu_button.image, self.menu_button.rect) 
@@ -175,7 +175,9 @@ class Controller:
       #event loop 
     self.screen.fill((0, 0, 0), None) 
     self.menu_button = Buttons(910, 20, 75, 35, "Menu", (202, 3, 252), (0, 0, 0), (5, 5)) 
+    self.chart_button = Buttons(870, 60, 125, 35, "Key Chart", center = (5,5)) 
     self.screen.blit(self.menu_button.image, self.menu_button.rect) 
+    self.screen.blit(self.chart_button.image, self.chart_button.rect) 
     self.key_a = Buttons(0, 300, 120, 250, "C", (255, 255, 255), (0, 0, 0), (50, 195)) 
     self.key_s = Buttons(125, 300, 120, 250, "D", (255, 255, 255), (0, 0, 0), (50, 195)) 
     self.key_d = Buttons(250, 300, 120, 250, "E", (255, 255, 255), (0, 0, 0), (50, 195)) 
@@ -189,9 +191,8 @@ class Controller:
     self.sharp_t = Buttons(470, 300, 60, 150,"F#", (0, 0, 0), (255, 255, 255), (15, 100)) 
     self.sharp_u = Buttons(595, 300, 60, 150,"G#", (0, 0, 0), (255, 255, 255), (15, 100)) 
     self.sharp_i = Buttons(720, 300, 60, 150,"A#", (0, 0, 0), (255, 255, 255), (15, 100)) 
-    self.sharp_p = Buttons(970, 300, 60, 150,"C#", (0, 0, 0), (255, 255, 255), (15, 100)) 
     key_list = [self.key_a, self.key_s, self.key_d, self.key_f, self.key_h, self.key_j, self.key_k, self.key_l] 
-    sharp_list = [self.sharp_w, self.sharp_e, self.sharp_t, self.sharp_u, self.sharp_i, self.sharp_p] 
+    sharp_list = [self.sharp_w, self.sharp_e, self.sharp_t, self.sharp_u, self.sharp_i] 
     for i in key_list: 
       self.screen.blit(i.image, i.rect) 
     for i in sharp_list: 
@@ -230,6 +231,9 @@ class Controller:
         if event.type == pygame.MOUSEBUTTONDOWN: 
           if self.menu_button.rect.collidepoint(event.pos): 
             self.state = "menu" 
+          elif self.chart_button.rect.collidepoint(event.pos): 
+            self.state = "chart" 
+            self.chartloop()
         if event.type == pygame.KEYDOWN: 
           if event.key == pygame.K_a: 
             self.key_a.key_down("do-c.ogg") 
