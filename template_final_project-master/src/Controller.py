@@ -4,14 +4,14 @@ from src.buttons import Buttons
 from src.arrow import Arrow 
 from src.sheet_music import Sheet_music
 class Controller: 
-  def __init__(self, x, y): 
+  def __init__(self, x=1000, y=550): 
     """ 
-        Initializes the controller
-        args: 
-          - x(int): width of screen 
-          - y(int): height of screen  
-        return: None 
-        """ 
+    Initializes the controller 
+    args: 
+      - x(int): width of pygame screen 
+      - y(int): height of pygame screen  
+    return: None 
+    """ 
     pygame.init() 
     pygame.event.pump() 
     self.screen = pygame.display.set_mode((x,y)) 
@@ -21,12 +21,12 @@ class Controller:
     
   def mainloop(self): 
     """ 
-        Includes procedures that need to continue throughout the entirety of the game 
-        args: 
-            - x (int): starting x coordinate 
-            - y (int): starting y coordinate 
-            - img_file (str): path to img file 
-        """ 
+    Handles events that could occur throughout the game. 
+    Such events include exiting the window and calling 
+    other methods depending on the value of self.state. 
+    args: None 
+    return: None 
+    """ 
     #select state loop 
     running = True 
     while running: 
@@ -53,11 +53,17 @@ class Controller:
   ### below are some sample loop states ### 
   def startloop(self): 
     """ 
-    description 
+    Sets up and displays the welcome screen 
+    with a welcome message and two interactive 
+    buttons. The events checked in this method 
+    include exiting the window and when a button 
+    is clicked which would lead to a different screen. 
+    args: None 
+    return: None 
     """ 
     self.screen.fill((0, 0, 0),None) 
     pygame.draw.rect(self.screen, (202, 3, 252), (50, 50, 900, 450)) 
-    self.welcome = Buttons(250, 70, 500, 95, "Welcome to Play Piano!", center = (14, 40), fsize = 60) 
+    self.welcome = Buttons(250, 70, 500, 95, "Welcome to Play Piano!", center = (14, 40), fontsize = 60) 
     self.play = Buttons(325, 325, 75, 60, "Play", center = (10, 20)) 
     self.chart = Buttons(530, 325, 135, 60, "Key Chart", center = (10, 20)) 
     self.screen.blit(self.welcome.image, self.welcome.rect) 
@@ -79,7 +85,14 @@ class Controller:
             self.chartloop() 
   def chartloop(self): 
     """ 
-    description 
+    This method displays an image of a keyboard 
+    with keys labeled with notes and the corresponding 
+    keyboard letters. The screen also has a menu button. 
+    Events are checked so the window can closed when desired 
+    and the user can return to the menu screen when they 
+    click the menu button. 
+    args: None 
+    return: None 
     """ 
     self.screen.fill((0, 0, 0))
     self.keychart = Sheet_music("keychart.jpg", 100, 50, 700, 300) 
@@ -97,13 +110,16 @@ class Controller:
           if self.menu_button.rect.collidepoint(event.pos): 
             self.state = "menu" 
       
-      
-        
   def menuloop(self): 
     """
-    Manages menu screen and its interactive buttons 
-      args: None 
-      return: None 
+    Sets up the menu screen with nine interactive 
+    buttons each labeled with a song title or 
+    "free play". Events are checked so that if a 
+    button is pressed, the gameloop will be called 
+    and the corresponding song image will be 
+    displayed. 
+    args: None 
+    return: None 
     """ 
       #event loop 
     self.screen.fill((0, 0, 0),None) 
@@ -168,9 +184,16 @@ class Controller:
       
   def gameloop(self): 
     """ 
-    Manages game and includes the interactive piano keys and music notes 
-      args: None 
-      return: None 
+    Sets up the game screen which displays 
+    labeled piano keys and an image of 
+    sheet music that corresponds to the 
+    song button they chose from the menu 
+    screen. When a computer key is pressed, 
+    the corresponding note plays. Menu and 
+    key chart buttons are displayed for user 
+    to return to the menu or view the key chart. 
+    args: None 
+    return: None 
     """ 
       #event loop 
     self.screen.fill((0, 0, 0), None) 

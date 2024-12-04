@@ -12,7 +12,7 @@ Clare Calandra
 
 ## Project Description
 
-My project will simulate playing a piano and facilitate learning the instrument by highlighting labeled keys to the rhythm of simple songs. 
+My project will simulate playing a piano with twelve keys represented by certain letters on a copmuter keyboard. This program facilitates learning the instrument by allowing the user to choose from a plethora of simple songs. 
 
 ***    
 
@@ -20,25 +20,29 @@ My project will simulate playing a piano and facilitate learning the instrument 
 
 ### Initial Design
 
-![initial gui](assets/gui.jpg)
+![initial gui](assets/gui.jpg) 
 
 ### Final Design
 
-![final gui](assets/finalgui.jpg)
+![final gui](assets/finalgui.jpg) 
 
 ## Program Design
 
 ### Features
 
-1. Choose your song menu 
-2. Labeled, interactive keys 
-3. Sound plays when keys are clicked 
-4. Sheet music displayed 
-5. Notes change color 
+1. Song menu with various buttons labeled with songnames to choose from 
+2. Labeled, interactive piano keys 
+3. Sound plays when respective keys are pressed 
+4. Sheet music displayed based on the song chosen 
+5. Key chart available 
 
 ### Classes
 
-- << You should have a list of each of your classes with a description >>
+- Controller: 
+- Buttons: 
+- Sheet_music: 
+
+<< You should have a list of each of your classes with a description >>
 
 ## ATP
 

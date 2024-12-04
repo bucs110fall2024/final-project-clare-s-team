@@ -1,6 +1,6 @@
 import pygame 
 import os 
-class Sheet_music(pygame.sprite.Sprite):            #pygame.sprite.Sprite
+class Sheet_music(pygame.sprite.Sprite): 
     def __init__(self, file_name, x, y, w, h): 
         """ 
         description 
