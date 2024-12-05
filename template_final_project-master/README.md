@@ -9,7 +9,7 @@ Clare Calandra
 
 ## Project Description
 
-My project will simulate playing a piano with thirteen keys represented by certain letters on a copmuter keyboard. This program facilitates learning the instrument by allowing the user to practice a selection of simple songs. 
+My project will simulate playing a piano with thirteen keys represented by certain letters on a computer keyboard. This program facilitates learning the instrument by allowing the user to practice various simple songs. 
 
 ***    
 
@@ -37,7 +37,7 @@ My project will simulate playing a piano with thirteen keys represented by certa
 
 - Controller: Creates and manages the program resources(models, framework, events) 
 - Buttons: Creates an object that is rectangular shaped with the ability to have text on it. Includes a method that loads a music file to play a note when the method is called. 
-- Sheet_music: Creates an objects that is rectangular with an image loaded from the folder "assets" displayed on it. 
+- Sheet_music: Creates an object that is rectangular with an image loaded from the folder "assets" displayed on it. 
 
 ## ATP 
 1. Confirm that the welcome button "Play" leads to the menu screen 
