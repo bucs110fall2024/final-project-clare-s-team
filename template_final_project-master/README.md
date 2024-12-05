@@ -1,6 +1,3 @@
-
-:warning: Everything between << >> needs to be replaced (remove << >> after replacing)
-
 # Play Piano
 ## CS110 Final Project Fall, 2024 
 
