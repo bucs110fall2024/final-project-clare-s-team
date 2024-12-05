@@ -1,7 +1,6 @@
 import pygame 
 import pygame.freetype 
 from src.buttons import Buttons 
-from src.arrow import Arrow 
 from src.sheet_music import Sheet_music
 class Controller: 
   def __init__(self, x=1000, y=550): 
@@ -18,7 +17,6 @@ class Controller:
     pygame.display.set_caption("Play Piano!") 
     self.state = "start" 
     
-    
   def mainloop(self): 
     """ 
     Handles events that could occur throughout the game. 
@@ -27,10 +25,8 @@ class Controller:
     args: None 
     return: None 
     """ 
-    #select state loop 
     running = True 
     while running: 
-      #1. Event 
       for event in pygame.event.get(): 
         if event.type == pygame.QUIT: 
           running = False 
@@ -42,15 +38,7 @@ class Controller:
           self.gameloop() 
     pygame.quit() 
     exit() 
-      #2. Update 
-      #3. Redraw 
-        #self.clouds.draw() 
-        #self.background = pygame.image.load("assets/background.png") 
-        #self.screen.blit(slef.background, (0,0)) 
-      #4. Display 
-    
-  
-  ### below are some sample loop states ### 
+
   def startloop(self): 
     """ 
     Sets up and displays the welcome screen 
@@ -121,7 +109,6 @@ class Controller:
     args: None 
     return: None 
     """ 
-      #event loop 
     self.screen.fill((0, 0, 0),None) 
     pygame.draw.rect(self.screen, (202, 3, 252), (50, 50, 900, 450)) 
     self.song1 = Buttons(70, 70, 260, 110, "C Major Scale") 
@@ -144,11 +131,6 @@ class Controller:
           self.state == "None" 
           pygame.quit() 
           exit() 
-        # if event.type == pygame.MOUSEMOTION: 
-        #   if self.song1.rect.collidepoint(event.pos): 
-        #     self.song1.glow() 
-        #   else: 
-        #     self.song1.default_color()  
         elif event.type == pygame.MOUSEBUTTONDOWN: 
           if self.free_play.rect.collidepoint(event.pos): 
             self.song = "free_play" 
@@ -178,9 +160,6 @@ class Controller:
             self.song = "8" 
             self.state = "game" 
       pygame.display.flip() 
-      #update data 
-
-      #redraw 
       
   def gameloop(self): 
     """ 
@@ -195,25 +174,24 @@ class Controller:
     args: None 
     return: None 
     """ 
-      #event loop 
     self.screen.fill((0, 0, 0), None) 
     self.menu_button = Buttons(910, 20, 75, 35, "Menu", (202, 3, 252), (0, 0, 0), (5, 5)) 
     self.chart_button = Buttons(870, 60, 125, 35, "Key Chart", center = (5,5)) 
     self.screen.blit(self.menu_button.image, self.menu_button.rect) 
     self.screen.blit(self.chart_button.image, self.chart_button.rect) 
-    self.key_a = Buttons(0, 300, 120, 250, "C", (255, 255, 255), (0, 0, 0), (50, 195)) 
-    self.key_s = Buttons(125, 300, 120, 250, "D", (255, 255, 255), (0, 0, 0), (50, 195)) 
-    self.key_d = Buttons(250, 300, 120, 250, "E", (255, 255, 255), (0, 0, 0), (50, 195)) 
-    self.key_f = Buttons(375, 300, 120, 250, "F", (255, 255, 255), (0, 0, 0), (50, 195)) 
-    self.key_h = Buttons(500, 300, 120, 250, "G", (255, 255, 255), (0, 0, 0), (50, 195)) 
-    self.key_j = Buttons(625, 300, 120, 250, "A", (255, 255, 255), (0, 0, 0), (50, 195)) 
-    self.key_k = Buttons(750, 300, 120, 250, "B", (255, 255, 255), (0, 0, 0), (50, 195)) 
-    self.key_l = Buttons(875, 300, 120, 250, "C", (255, 255, 255), (0, 0, 0), (50, 195)) 
-    self.sharp_w = Buttons(95, 300, 60, 150,"C#", (0, 0, 0), (255, 255, 255), (15, 100)) 
-    self.sharp_e = Buttons(220, 300, 60, 150,"D#", (0, 0, 0), (255, 255, 255), (15, 100)) 
-    self.sharp_t = Buttons(470, 300, 60, 150,"F#", (0, 0, 0), (255, 255, 255), (15, 100)) 
-    self.sharp_u = Buttons(595, 300, 60, 150,"G#", (0, 0, 0), (255, 255, 255), (15, 100)) 
-    self.sharp_i = Buttons(720, 300, 60, 150,"A#", (0, 0, 0), (255, 255, 255), (15, 100)) 
+    self.key_a = Buttons(0, 300, 120, 250, "C(a)", (255, 255, 255), (0, 0, 0), (43, 195)) 
+    self.key_s = Buttons(125, 300, 120, 250, "D(s)", (255, 255, 255), (0, 0, 0), (43, 195)) 
+    self.key_d = Buttons(250, 300, 120, 250, "E(d)", (255, 255, 255), (0, 0, 0), (43, 195)) 
+    self.key_f = Buttons(375, 300, 120, 250, "F(f)", (255, 255, 255), (0, 0, 0), (43, 195)) 
+    self.key_h = Buttons(500, 300, 120, 250, "G(h)", (255, 255, 255), (0, 0, 0), (43, 195)) 
+    self.key_j = Buttons(625, 300, 120, 250, "A(j)", (255, 255, 255), (0, 0, 0), (43, 195)) 
+    self.key_k = Buttons(750, 300, 120, 250, "B(k)", (255, 255, 255), (0, 0, 0), (43, 195)) 
+    self.key_l = Buttons(875, 300, 120, 250, "C(l)", (255, 255, 255), (0, 0, 0), (43, 195)) 
+    self.sharp_w = Buttons(95, 300, 60, 150,"C#(w)", (0, 0, 0), (255, 255, 255), (1, 100)) 
+    self.sharp_e = Buttons(220, 300, 60, 150,"D#(e)", (0, 0, 0), (255, 255, 255), (3, 100)) 
+    self.sharp_t = Buttons(470, 300, 60, 150,"F#(t)", (0, 0, 0), (255, 255, 255), (6, 100)) 
+    self.sharp_u = Buttons(595, 300, 60, 150,"G#(u)", (0, 0, 0), (255, 255, 255), (1, 100)) 
+    self.sharp_i = Buttons(720, 300, 60, 150,"A#(i)", (0, 0, 0), (255, 255, 255), (5, 100)) 
     key_list = [self.key_a, self.key_s, self.key_d, self.key_f, self.key_h, self.key_j, self.key_k, self.key_l] 
     sharp_list = [self.sharp_w, self.sharp_e, self.sharp_t, self.sharp_u, self.sharp_i] 
     for i in key_list: 
@@ -260,41 +238,113 @@ class Controller:
         if event.type == pygame.KEYDOWN: 
           if event.key == pygame.K_a: 
             self.key_a.key_down("do-c.ogg") 
-            
+            self.key_a.glow() 
+            self.screen.blit(self.key_a.image, self.key_a.rect) 
+            self.screen.blit(self.sharp_w.image, self.sharp_w.rect) 
+            self.key_a.default_color() 
+            pygame.display.update()
+            self.screen.blit(self.key_a.image, self.key_a.rect) 
+            self.screen.blit(self.sharp_w.image, self.sharp_w.rect) 
           elif event.key == pygame.K_s: 
             self.key_s.key_down("re-d.ogg") 
-            
+            self.key_s.glow() 
+            self.screen.blit(self.key_s.image, self.key_s.rect) 
+            self.screen.blit(self.sharp_w.image, self.sharp_w.rect) 
+            self.screen.blit(self.sharp_e.image, self.sharp_e.rect) 
+            self.key_s.default_color() 
+            pygame.display.update()
+            self.screen.blit(self.key_s.image, self.key_s.rect) 
+            self.screen.blit(self.sharp_w.image, self.sharp_w.rect) 
+            self.screen.blit(self.sharp_e.image, self.sharp_e.rect) 
           elif event.key == pygame.K_d: 
             self.key_d.key_down("mi-e.ogg") 
-            
+            self.key_d.glow() 
+            self.screen.blit(self.key_d.image, self.key_d.rect) 
+            self.screen.blit(self.sharp_e.image, self.sharp_e.rect) 
+            self.key_d.default_color() 
+            pygame.display.update()
+            self.screen.blit(self.key_d.image, self.key_d.rect) 
+            self.screen.blit(self.sharp_e.image, self.sharp_e.rect) 
           elif event.key == pygame.K_f: 
             self.key_f.key_down("fa-f.ogg") 
-            
+            self.key_f.glow() 
+            self.screen.blit(self.key_f.image, self.key_f.rect) 
+            self.screen.blit(self.sharp_t.image, self.sharp_t.rect) 
+            self.key_f.default_color() 
+            pygame.display.update()
+            self.screen.blit(self.key_f.image, self.key_f.rect) 
+            self.screen.blit(self.sharp_t.image, self.sharp_t.rect) 
           elif event.key == pygame.K_h: 
             self.key_h.key_down("so-g.ogg") 
-            
+            self.key_h.glow() 
+            self.screen.blit(self.key_h.image, self.key_h.rect) 
+            self.screen.blit(self.sharp_t.image, self.sharp_t.rect) 
+            self.screen.blit(self.sharp_u.image, self.sharp_u.rect) 
+            self.key_h.default_color() 
+            pygame.display.update()
+            self.screen.blit(self.key_h.image, self.key_h.rect) 
+            self.screen.blit(self.sharp_t.image, self.sharp_t.rect) 
+            self.screen.blit(self.sharp_u.image, self.sharp_u.rect) 
           elif event.key == pygame.K_j: 
             self.key_j.key_down("la-a.ogg") 
-            
+            self.key_j.glow() 
+            self.screen.blit(self.key_j.image, self.key_j.rect) 
+            self.screen.blit(self.sharp_u.image, self.sharp_u.rect) 
+            self.screen.blit(self.sharp_i.image, self.sharp_i.rect) 
+            self.key_j.default_color() 
+            pygame.display.update()
+            self.screen.blit(self.key_j.image, self.key_j.rect) 
+            self.screen.blit(self.sharp_u.image, self.sharp_u.rect) 
+            self.screen.blit(self.sharp_i.image, self.sharp_i.rect) 
           elif event.key == pygame.K_k: 
             self.key_k.key_down("ti-b.ogg") 
+            self.key_k.glow() 
+            self.screen.blit(self.key_k.image, self.key_k.rect) 
+            self.screen.blit(self.sharp_i.image, self.sharp_i.rect) 
+            self.key_k.default_color() 
+            pygame.display.update()
+            self.screen.blit(self.key_k.image, self.key_k.rect) 
+            self.screen.blit(self.sharp_i.image, self.sharp_i.rect) 
           elif event.key == pygame.K_l: 
             self.key_l.key_down("octave-do-c.ogg") 
-            # self.key_l.glow() 
-            # self.screen.blit(self.key_l.image, self.key_l.rect) 
+            self.key_l.glow() 
+            self.screen.blit(self.key_l.image, self.key_l.rect) 
+            self.key_l.default_color() 
+            pygame.display.update()
+            self.screen.blit(self.key_l.image, self.key_l.rect) 
           elif event.key == pygame.K_w: 
             self.sharp_w.key_down("C#.ogg") 
+            self.sharp_w.glow() 
+            self.screen.blit(self.sharp_w.image, self.sharp_w.rect) 
+            self.sharp_w.default_color() 
+            pygame.display.update()
+            self.screen.blit(self.sharp_w.image, self.sharp_w.rect) 
           elif event.key == pygame.K_e: 
             self.sharp_e.key_down("D#.ogg") 
+            self.sharp_e.glow() 
+            self.screen.blit(self.sharp_e.image, self.sharp_e.rect) 
+            self.sharp_e.default_color() 
+            pygame.display.update()
+            self.screen.blit(self.sharp_e.image, self.sharp_e.rect) 
           elif event.key == pygame.K_t: 
             self.sharp_t.key_down("F#.ogg") 
+            self.sharp_t.glow() 
+            self.screen.blit(self.sharp_t.image, self.sharp_t.rect) 
+            self.sharp_t.default_color() 
+            pygame.display.update()
+            self.screen.blit(self.sharp_t.image, self.sharp_t.rect) 
           elif event.key == pygame.K_u: 
             self.sharp_u.key_down("G#.ogg") 
+            self.sharp_u.glow() 
+            self.screen.blit(self.sharp_u.image, self.sharp_u.rect) 
+            self.sharp_u.default_color() 
+            pygame.display.update()
+            self.screen.blit(self.sharp_u.image, self.sharp_u.rect) 
           elif event.key == pygame.K_i: 
             self.sharp_i.key_down("A#.ogg") 
+            self.sharp_i.glow() 
+            self.screen.blit(self.sharp_i.image, self.sharp_i.rect) 
+            self.sharp_i.default_color() 
+            pygame.display.update()
+            self.screen.blit(self.sharp_i.image, self.sharp_i.rect) 
           pygame.display.flip() 
-      # else: 
-
-      #update data 
-
-      #redraw 
